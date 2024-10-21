@@ -19,6 +19,8 @@ public class Employer {
     }
 
     // Custom toString, equals, and hashCode methods:
+     // geters and seters
+
 
     @Override
     public String toString() {
