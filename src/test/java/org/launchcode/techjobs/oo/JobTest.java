@@ -2,6 +2,9 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -53,6 +56,61 @@ public class JobTest {
         //assertNotEquals(j1.equals(j2),true);
         assertEquals(j1.equals(j2),false);
 
+
+
+    }
+
+    @Test
+    public void   testToStringStartsAndEndsWithNewLine(){
+        String lineSeparator=System.lineSeparator();
+        Job j= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String ss=j.toString();
+
+        assertEquals(ss.substring(0,lineSeparator.length()), lineSeparator);//start by lineSeparator
+        assertEquals(ss.substring( ss.length()-lineSeparator.length(),ss.length()), lineSeparator); // ending by lineSeparator
+
+    }
+
+    @Test public void     testToStringContainsCorrectLabelsAndData(){
+        String lineSeparator=System.lineSeparator();
+        Job j= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        String[] lines=j.toString().split(lineSeparator);
+        //System.out.println(j.toString());
+
+        assertEquals(lines[1].indexOf("ID: "),0);
+        assertEquals(lines[2].indexOf("Name: "),0);
+        assertEquals(lines[3].indexOf("Employer: "),0);
+        assertEquals(lines[4].indexOf("Location: "),0);
+        assertEquals(lines[5].indexOf("Position Type: "),0);
+        assertEquals(lines[6].indexOf("Core Competency: "),0);
+
+    }
+    @Test
+    public void testToStringHandlesEmptyField(){
+
+        String lineSeparator=System.lineSeparator();
+        String dna="Data not available";
+        Job j= new Job();
+
+        String[] lines=j.toString().split(lineSeparator);
+       // System.out.println(j.toString());
+
+
+        assertTrue(lines[2].indexOf(dna)>0);//name empty
+        assertTrue(lines[3].indexOf(dna)>0);//Employer empty
+        assertTrue(lines[4].indexOf(dna)>0);//Location empty
+        assertTrue(lines[5].indexOf(dna)>0);//Position Type empty
+        assertTrue(lines[6].indexOf(dna)>0);//Core Competency empty
+
+
+        j= new Job(" ", new Employer(" "), new Location(" "), new PositionType(" "), new CoreCompetency(" "));
+        lines=j.toString().split(lineSeparator);
+        assertTrue(lines[2].indexOf(dna)>0);//name empty
+        assertTrue(lines[3].indexOf(dna)>0);//Employer empty
+        assertTrue(lines[4].indexOf(dna)>0);//Location empty
+        assertTrue(lines[5].indexOf(dna)>0);//Position Type empty
+        assertTrue(lines[6].indexOf(dna)>0);//Core Competency empty
 
 
     }

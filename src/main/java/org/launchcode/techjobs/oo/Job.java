@@ -47,6 +47,22 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        String dna="Data not available"; // use if null or empty or blanc
+        return  System.lineSeparator()
+                +"ID: "+id        +System.lineSeparator()
+                +"Name: "+((name!=null && name.trim() !="")? name :dna )           +System.lineSeparator()
+                +"Employer: "+((employer!=null &&  employer.getValue().trim()!="" )? employer.getValue() :dna )         +System.lineSeparator()
+                +"Location: "+((location!=null && location.getValue().trim()!="")? location.getValue()  :dna  )         +System.lineSeparator()
+                +"Position Type: "+((positionType!=null && positionType.getValue().trim()!="" )? positionType.getValue() :dna)       +System.lineSeparator()
+                +"Core Competency: "+((coreCompetency!=null && coreCompetency.getValue().trim()!="")? coreCompetency.getValue() : dna )    +System.lineSeparator();
+
+
+
+
+    }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
