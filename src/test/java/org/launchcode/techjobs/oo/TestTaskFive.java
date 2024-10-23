@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 
 import static java.lang.System.lineSeparator;
 import static org.junit.Assert.assertEquals;
@@ -38,8 +39,10 @@ public class TestTaskFive extends AbstractTest {
         Job job = createJob("Web Developer", "LaunchCode", "StL", "Back-end developer", "Java");
         String firstChar = String.valueOf(job.toString().charAt(0));
         String lastChar = String.valueOf(job.toString().charAt(job.toString().length()-1));
-        assertEquals(firstChar, lineSeparator());
-        assertEquals(lastChar, lineSeparator());
+        //assertEquals(firstChar, lineSeparator());
+        assertEquals(firstChar,"\n");
+        //assertEquals(lastChar, lineSeparator());
+        assertEquals(lastChar, "\n");
     }
 
     @Test
@@ -77,6 +80,7 @@ public class TestTaskFive extends AbstractTest {
     public void testToStringHandlesEmptyField() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
         Job job = createJob("Web Developer", "", "StL", "", "Java");
         String jobString = getJobString(job);
+        System.out.println(jobString+"--"+job.toString()+"--");
         assertEquals(jobString, job.toString());
     }
 

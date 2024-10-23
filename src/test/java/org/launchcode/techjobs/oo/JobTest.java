@@ -72,6 +72,7 @@ public class JobTest {
 
     }
 
+
     @Test public void     testToStringContainsCorrectLabelsAndData(){
         String lineSeparator=System.lineSeparator();
         lineSeparator="\n";
