@@ -63,6 +63,7 @@ public class JobTest {
     @Test
     public void   testToStringStartsAndEndsWithNewLine(){
         String lineSeparator=System.lineSeparator();
+        lineSeparator="\n";
         Job j= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String ss=j.toString();
 
@@ -73,6 +74,7 @@ public class JobTest {
 
     @Test public void     testToStringContainsCorrectLabelsAndData(){
         String lineSeparator=System.lineSeparator();
+        lineSeparator="\n";
         Job j= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         String[] lines=j.toString().split(lineSeparator);
@@ -90,6 +92,7 @@ public class JobTest {
     public void testToStringHandlesEmptyField(){
 
         String lineSeparator=System.lineSeparator();
+         lineSeparator="\n";
         String dna="Data not available";
         Job j= new Job();
 

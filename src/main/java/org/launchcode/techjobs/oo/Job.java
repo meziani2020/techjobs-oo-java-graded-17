@@ -50,16 +50,20 @@ public class Job {
     @Override
     public String toString() {
         String dna="Data not available"; // use if null or empty or blanc
-        return  System.lineSeparator()
-                +"ID: "+id        +System.lineSeparator()
-                +"Name: "+((name!=null && name.trim() !="")? name :dna )           +System.lineSeparator()
-                +"Employer: "+((employer!=null &&  employer.getValue().trim()!="" )? employer.getValue() :dna )         +System.lineSeparator()
-                +"Location: "+((location!=null && location.getValue().trim()!="")? location.getValue()  :dna  )         +System.lineSeparator()
-                +"Position Type: "+((positionType!=null && positionType.getValue().trim()!="" )? positionType.getValue() :dna)       +System.lineSeparator()
-                +"Core Competency: "+((coreCompetency!=null && coreCompetency.getValue().trim()!="")? coreCompetency.getValue() : dna )    +System.lineSeparator();
+        //String mylineSeparator="\r\n";//System.lineSeparator() on windows
+        String mylineSeparator="\n";//System.lineSeparator() on linux
+        //System.setProperty("line.separator", "\n");
+        String stringForm=mylineSeparator
+        //String stringForm=System.lineSeparator()
+                +"ID: "+id        +mylineSeparator
+                +"Name: "+((name!=null && name.trim() !="")? name :dna )           +mylineSeparator
+                +"Employer: "+((employer!=null &&  employer.getValue().trim()!="" )? employer.getValue() :dna )         +mylineSeparator
+                +"Location: "+((location!=null && location.getValue().trim()!="")? location.getValue()  :dna  )         +mylineSeparator
+                +"Position Type: "+((positionType!=null && positionType.getValue().trim()!="" )? positionType.getValue() :dna)       +mylineSeparator
+                +"Core Competency: "+((coreCompetency!=null && coreCompetency.getValue().trim()!="")? coreCompetency.getValue() : dna )    +mylineSeparator;
 
-
-
+        //System.out.println(stringForm);
+        return  stringForm;
 
     }
 
